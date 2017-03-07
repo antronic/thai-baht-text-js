@@ -1,10 +1,9 @@
 # Thai Baht Text JS
 
-## About Thai-Baht-Text JS
 Convert number to Thai Baht as Text
 
 แปลง เลข ให้เป็น หน่วยบาทไทย
-
+___
 ## Installation
 #### วิธีติดตั้ง
 ```bash
