@@ -1,6 +1,6 @@
 {
-  "name": "thai-baht-text-js",
-  "version": "1.0.0",
+  "name": "thai-baht-text",
+  "version": "0.0.11",
   "description": "Convert number to Thai Bath as Text",
   "main": "thai-baht-text.js",
   "scripts": {
@@ -27,5 +27,13 @@
   "bugs": {
     "url": "https://github.com/antronic/thai-baht-text-js/issues"
   },
-  "homepage": "https://github.com/antronic/thai-baht-text-js#readme"
+  "homepage": "https://github.com/antronic/thai-baht-text-js#readme",
+  "dependencies": {
+    "async": "^2.1.5",
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "eslint": "^3.17.0",
+    "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-plugin-import": "^2.2.0"
+  }
 }
