@@ -2,6 +2,7 @@
 
 ## About Thai-Baht-Text JS
 Convert number to Thai Baht as Text
+
 แปลง เลข ให้เป็น หน่วยบาทไทย
 
 ## Installation
