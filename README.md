@@ -92,7 +92,7 @@ ___
 The Thai-Baht-Text JS is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ## Ending message
-If you found bugs, please pull request back or open issue.
+If you found bugs, please send pull request back or open an issue.
 
 Thank you so much 😃
 <br /><br />
