@@ -1,8 +1,10 @@
 # Thai Baht Text JS
+[Installation](https://github.com/antronic/thai-baht-text-js#installation) | [Usage](https://github.com/antronic/thai-baht-text-js#usage)
 
 Convert number to Thai Baht as Text
 
 แปลง เลข ให้เป็น หน่วยบาทไทย
+
 ___
 ## Installation
 #### วิธีติดตั้ง
