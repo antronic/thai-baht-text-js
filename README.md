@@ -76,10 +76,10 @@ ___
 #### CAUTION!
 
 > You can use number that doesn't over than 9007199254740991<br />
-that is MAX_SAFE_INTEGER of javascript.
+> that is MAX_SAFE_INTEGER of javascript.
 
 > คุณสามารถใส่เลขได้ไม่เกิน 9007199254740991<br />
-​ซึ่งเป็น MAX_SAFE_INTEGER ของ javascript
+> ​ซึ่งเป็น MAX_SAFE_INTEGER ของ javascript
 ___
 ## Library & Development Tools
 * Javascript ES6
