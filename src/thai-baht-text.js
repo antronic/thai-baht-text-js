@@ -30,13 +30,14 @@ const convert = (numberInput, subfix = '') => {
 	return textOutput
 }
 
-const convertAsync = (numberInput, subfix = '') => {
+const convertAsync = (numberInput) => {
 	let numberStr = numberInput.toString()
 	numberStr = numberStr.split('').reverse().join('')
 
 	const numbersText = 'ศูนย์,หนึ่ง,สอง,สาม,สี่,ห้า,หก,เจ็ด,แปด,เก้า,สิบ'.split(',')
 	const unitsText = 'สิบ,ร้อย,พ้น,หมื่น,แสน,ล้าน'.split(',')
 
+	let millionSubfix = ''
 	let textOutput = ''
 
 	return new Promise(
@@ -46,19 +47,44 @@ const convertAsync = (numberInput, subfix = '') => {
 				let numberText = numbersText[currentNumber]
 				let unitText = ''
 
-				if (i !== numberStr.length - 1) {
-					unitText = unitsText[numberStr.length - 2 - i]
+				console.log(`${i} -> ${i %7} -> ${currentNumber} -> ${Math.abs(i - 1) % 6} -> ${unitsText[i - 1 % 6]}`)
+				if (i !== 0) {
+					unitText = unitsText[Math.abs(i - 1) % 6]
 				}
 
-				if (numberStr.length - ( i + 1 ) === 1 && currentNumber <= 2) {
+				if (i % 6 === 1 && currentNumber <= 2) {
 					if (currentNumber === 2) {
-						unitText = 'ยี่สิบ'
+						unitText = 'สิบ'
+						numberText = 'ยี่'
+					} else if ( i > 6 && currentNumber === 1) {
+						unitText = 'สิบ'
+						numberText = ''
 					} else {
 						numberText = ''
 					}
 				}
 
-				textOutput = numberText + unitText + subfix + textOutput
+				if (i >= 6 && i % 6 === 0) {
+					if (currentNumber === 1) {
+						if (i + 1 < numberStr.length) {
+							numberText = 'เอ็ด'
+						}
+					}
+				}
+
+				if (currentNumber === 0) {
+					unitText = ''
+					numberText = ''
+				}
+
+				if (i >= 6 && i % 6 === 0) {
+					const millionCount = Math.floor(i / 12)
+					millionSubfix = 'ล้าน'.repeat(millionCount)
+				} else {
+					millionSubfix = ''
+				}
+
+				textOutput = numberText + unitText + millionSubfix  + textOutput
 				callback()
 			}, () => {
 				done(textOutput)
@@ -90,10 +116,6 @@ exports.convertAsync = (numberInput) => {
 
 	const decimalStr = numberStr.split('.')[0]
 	const floatingStr = numberStr.split('.')[1]
-
-	const millionCount = (decimalStr.length > 7) ? decimalStr.length % 7 : 0
-
-	console.log(millionCount)
 
 	let textOutput = ''
 
