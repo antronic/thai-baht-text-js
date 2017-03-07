@@ -1,7 +1,8 @@
-# ThaiBahtTextJS
-Convert number to Thai Bath as Text
+# Thai Baht Text JS
 
-แปลงจากเลขให้เป็นหน่วยบาทไทย
+## About Thai-Baht-Text JS
+Convert number to Thai Baht as Text
+แปลง เลข ให้เป็น หน่วยบาทไทย
 
 ## Installation
 #### วิธีติดตั้ง
@@ -70,7 +71,25 @@ ThaiBaht.async(money)
 ```
 #### More infomation [ES6 Example](https://github.com/antronic/thai-baht-text-js/)
 
+___
 
+#### CAUTION!
+
+> You can use number that doesn't over than 9007199254740991<br />
+that is MAX_SAFE_INTEGER of javascript.
+
+> คุณสามารถใส่เลขได้ไม่เกิน 9007199254740991<br />
+​ซึ่งเป็น MAX_SAFE_INTEGER ของ javascript
+___
+## Library & Development Tools
+* Javascript ES6
+* [Async](https://github.com/caolan/async)
+* Babel
+
+## License
+The Thai-Baht-Text JS is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+___
+<br /><br /><br />
 แปลง เลข เป็น บาทไทย, 
 
 thai baht text javascript,
