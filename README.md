@@ -42,7 +42,7 @@ ThaiBaht.async(money)
 		// OUTPUT: เก้าพ้นเจ็ดล้านล้านเอ็ดแสนเก้าหมื่นเก้าพ้นสองร้อยห้าสิบสี่ล้านเจ็ดแสนสี่หมื่นเก้าร้อยเก้าสิบเอ็ดบาทถ้วน
 	})
 ```
-#### More infomation [ES5 Example](https://github.com/antronic/thai-baht-text-js/)
+#### More infomation [ES5 Example](https://github.com/antronic/thai-baht-text-js/blob/master/example/example_es5.js)
 ___
 
 #### Javascript ES6
@@ -69,17 +69,15 @@ ThaiBaht.async(money)
 		// OUTPUT: เก้าพ้นเจ็ดล้านล้านเอ็ดแสนเก้าหมื่นเก้าพ้นสองร้อยห้าสิบสี่ล้านเจ็ดแสนสี่หมื่นเก้าร้อยเก้าสิบเอ็ดบาทถ้วน
 	})
 ```
-#### More infomation [ES6 Example](https://github.com/antronic/thai-baht-text-js/)
+#### More infomation [ES6 Example](https://github.com/antronic/thai-baht-text-js/blob/master/example/example_es6.js)
 
 ___
 
 #### CAUTION!
 
-> You can use number that doesn't over than 9007199254740991<br />
-> that is MAX_SAFE_INTEGER of javascript.
+> You can use number that doesn't over than 9007199254740991<br />that is MAX_SAFE_INTEGER of javascript.
 
-> คุณสามารถใส่เลขได้ไม่เกิน 9007199254740991<br />
-> ​ซึ่งเป็น MAX_SAFE_INTEGER ของ javascript
+> คุณสามารถใส่เลขได้ไม่เกิน 9007199254740991<br />ซึ่งเป็น MAX_SAFE_INTEGER ของ javascript
 ___
 ## Library & Development Tools
 * Javascript ES6
