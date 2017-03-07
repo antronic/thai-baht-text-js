@@ -71,7 +71,7 @@ ThaiBaht.async(money)
 ```
 #### More infomation [ES6 Example](https://github.com/antronic/thai-baht-text-js/blob/master/example/example_es6.js)
 
-___
+
 
 #### CAUTION!
 
@@ -90,6 +90,16 @@ ___
 
 ## License
 The Thai-Baht-Text JS is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Ending message
+If you found bugs, please pull request back or open issue.
+
+Thank you so much 😃
+<br /><br />
+
+Regrads,
+
+Jirachai Chansivanon
 ___
 <br /><br /><br />
 แปลง เลข เป็น บาทไทย, 

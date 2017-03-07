@@ -25,7 +25,6 @@ const convert = (numberInput) => {
 	let textOutput = ''
 
 	numberStr.split('').map((number, i) => {
-
 		const currentNumber = Number(number)
 		let numberText = numbersText[currentNumber]
 		let unitText = ''
@@ -38,7 +37,7 @@ const convert = (numberInput) => {
 			if (currentNumber === 2) {
 				unitText = 'สิบ'
 				numberText = 'ยี่'
-			} else if ( i > 6 && currentNumber === 1) {
+			} else if (i > 6 && currentNumber === 1) {
 				unitText = 'สิบ'
 				numberText = ''
 			} else {
@@ -54,7 +53,7 @@ const convert = (numberInput) => {
 			}
 		}
 
-		if (numberStr.length > 1 && currentNumber === 1) {
+		if (numberStr.length > 1 && i === 0 && currentNumber === 1) {
 			numberText = 'เอ็ด'
 		}
 
@@ -70,7 +69,8 @@ const convert = (numberInput) => {
 			millionSubfix = ''
 		}
 
-		textOutput = numberText + unitText + millionSubfix  + textOutput
+		textOutput = numberText + unitText + millionSubfix + textOutput
+		return number
 	})
 	return textOutput
 }
@@ -87,7 +87,6 @@ const convertAsync = (numberInput) => {
 	return new Promise(
 		(done) => {
 			eachOf(numberStr, (number, i, callback) => {
-
 				const currentNumber = Number(number)
 				let numberText = numbersText[currentNumber]
 				let unitText = ''
@@ -103,7 +102,7 @@ const convertAsync = (numberInput) => {
 					if (currentNumber === 2) {
 						unitText = 'สิบ'
 						numberText = 'ยี่'
-					} else if ( i > 6 && currentNumber === 1) {
+					} else if (i > 6 && currentNumber === 1) {
 						unitText = 'สิบ'
 						numberText = ''
 					} else {
@@ -124,7 +123,7 @@ const convertAsync = (numberInput) => {
 					numberText = ''
 				}
 
-				if (numberStr.length > 1 && currentNumber === 1) {
+				if (numberStr.length > 1 && i === 0 && currentNumber === 1) {
 					numberText = 'เอ็ด'
 				}
 
@@ -135,19 +134,19 @@ const convertAsync = (numberInput) => {
 					millionSubfix = ''
 				}
 
-				textOutput = numberText + unitText + millionSubfix  + textOutput
+				textOutput = numberText + unitText + millionSubfix + textOutput
 				callback()
 			}, () => {
 				done(textOutput)
 			})
-		}
+		},
 	)
 }
 
 // export default as convert without async
 
 export default (numberInput) => {
-	let numberStr = numberInput.toString()
+	const numberStr = numberInput.toString()
 
 	const decimalStr = numberStr.split('.')[0]
 	const floatingStr = numberStr.split('.')[1]
@@ -167,7 +166,7 @@ export default (numberInput) => {
 // exprot convert with async
 
 exports.convertAsync = (numberInput) => {
-	let numberStr = numberInput.toString()
+	const numberStr = numberInput.toString()
 
 	const decimalStr = numberStr.split('.')[0]
 	const floatingStr = numberStr.split('.')[1]
@@ -189,12 +188,12 @@ exports.convertAsync = (numberInput) => {
 					done(textOutput)
 				}
 			})
-		}
+		},
 	)
 }
 
 
 // export for ES5
 
-module.exports = exports['default']
+module.exports = exports.default
 module.exports.async = exports.convertAsync
