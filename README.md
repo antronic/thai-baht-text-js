@@ -73,6 +73,24 @@ ThaiBaht.async(money)
 ```
 #### More infomation [ES6 Example](https://github.com/antronic/thai-baht-text-js/blob/master/example/example_es6.js)
 
+#### **Suggestion**
+If your floating point has zero on the lastest, the javascript will remove it automatically. For example
+
+```javascript
+ThaiBaht(131.50)
+// OUTPUT หนึ่งร้อยสามสิบเอ็ดบาทห้าสตางค์
+// It's wrong!
+```
+
+As you see it would return the wrong result.
+
+So, you just convert it to string, like this.
+
+```javascript
+ThaiBaht('131.50')
+// OUTPUT หนึ่งร้อยสามสิบเอ็ดบาทห้าสิบสตางค์
+// It's correct! 👏🏻
+```
 
 
 #### CAUTION!
