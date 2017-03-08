@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "node"
+  - "6"
+  - "4"
+  - "0.12"
+script: "npm install aysnc babel-cli babel-preset-es2015 eslint eslint-config-airbnb-base eslint-plugin-import --save"
+cache:
+  yarn: true
