@@ -146,7 +146,7 @@ const convertAsync = (numberInput) => {
 // export default as convert without async
 
 export default (numberInput) => {
-	const numberStr = numberInput.toString()
+	const numberStr = parseFloat(numberInput).toFixed(2)
 
 	const decimalStr = numberStr.split('.')[0]
 	const floatingStr = numberStr.split('.')[1]
@@ -154,7 +154,7 @@ export default (numberInput) => {
 	let textOutput = ''
 
 	textOutput = convert(decimalStr)
-	if (floatingStr !== undefined) {
+	if (floatingStr !== undefined && floatingStr !== '00') {
 		textOutput = `${textOutput}${primaryCurrency}${convert(floatingStr)}${secondaryCurrency}`
 	} else {
 		textOutput = `${textOutput}${primaryCurrency}${fullMoney}`
@@ -165,8 +165,8 @@ export default (numberInput) => {
 
 // exprot convert with async
 
-exports.convertAsync = (numberInput) => {
-	const numberStr = numberInput.toString()
+exports.async = (numberInput) => {
+	const numberStr = parseFloat(numberInput).toFixed(2)
 
 	const decimalStr = numberStr.split('.')[0]
 	const floatingStr = numberStr.split('.')[1]
@@ -177,7 +177,7 @@ exports.convertAsync = (numberInput) => {
 		(done) => {
 			convertAsync(decimalStr).then((str) => {
 				textOutput = str
-				if (floatingStr !== undefined) {
+				if (floatingStr !== undefined && floatingStr !== '00') {
 					convertAsync(floatingStr)
 						.then((floatingStrOutput) => {
 							textOutput = `${textOutput}${primaryCurrency}${floatingStrOutput}${secondaryCurrency}`
@@ -196,4 +196,4 @@ exports.convertAsync = (numberInput) => {
 // export for ES5
 
 module.exports = exports.default
-module.exports.async = exports.convertAsync
+module.exports.async = exports.async

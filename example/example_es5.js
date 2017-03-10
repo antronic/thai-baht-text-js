@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 const ThaiBaht = require('thai-baht-text') // for ES5
 
 // This module is very simple to use
@@ -5,7 +7,7 @@ const ThaiBaht = require('thai-baht-text') // for ES5
 // LIKE THIS --> ThaiBaht(Number)
 
 let money = 10050
-let moneyText = ThaiBaht(money)
+const moneyText = ThaiBaht(money)
 
 console.log(moneyText)
 // OUTPUT: หนึ่งหมื่นห้าสิบบาทถ้วน
