@@ -1,4 +1,7 @@
 # Thai Baht Text JS
+
+[![Build Status](https://travis-ci.org/antronic/thai-baht-text-js.svg?branch=master)](https://travis-ci.org/antronic/thai-baht-text-js)
+
 [Installation](https://github.com/antronic/thai-baht-text-js#installation) | [Usage](https://github.com/antronic/thai-baht-text-js#usage)
 
 Convert number to Thai Baht as Text
