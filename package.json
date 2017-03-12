@@ -28,9 +28,7 @@
     "url": "https://github.com/antronic/thai-baht-text-js/issues"
   },
   "homepage": "https://github.com/antronic/thai-baht-text-js#readme",
-  "dependencies": {
-    "async": "^2.1.5"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.23.0",
     "babel-plugin-istanbul": "^4.0.0",
