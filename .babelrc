@@ -2,5 +2,10 @@
 	"presets": [
 		"es2015"
 	],
-	"minified": true
+	"minified": true,
+	"env": {
+    "test": {
+      "plugins": ["istanbul"]
+    }
+  }
 }
