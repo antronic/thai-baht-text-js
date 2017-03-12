@@ -26,6 +26,8 @@ describe('Thai Baht Text', () => {
 	it('should convert big number to baht', () => {
 		expect(ThaiBaht(1000000)).to.equal('หนึ่งล้านบาทถ้วน')
 		expect(ThaiBaht(1000001)).to.equal('หนึ่งล้านเอ็ดบาทถ้วน')
+		expect(ThaiBaht(11000001)).to.equal('สิบเอ็ดล้านเอ็ดบาทถ้วน')
+		expect(ThaiBaht(11000000)).to.equal('สิบเอ็ดล้านบาทถ้วน')
 	})
 
 	it('should convert complex number to baht', () => {
