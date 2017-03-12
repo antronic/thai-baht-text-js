@@ -1,6 +1,8 @@
 # Thai Baht Text JS
 
 [![Build Status](https://img.shields.io/travis/antronic/thai-baht-text-js.svg?style=flat-square)](https://travis-ci.org/antronic/thai-baht-text-js)
+[codecov]: https://codecov.io/gh/antronic/thai-baht-text-js
+[codecov-svg]: https://img.shields.io/codecov/c/github/antronic/thai-baht-text-js.svg
 [![NPM Version](https://img.shields.io/npm/v/thai-baht-text.svg?style=flat-square)](https://www.npmjs.com/package/thai-baht-text)
 [![NPM Download](https://img.shields.io/npm/dt/thai-baht-text.svg?style=flat-square)](https://www.npmjs.com/package/thai-baht-text)
 
