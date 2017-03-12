@@ -3,8 +3,6 @@
  * @see {@link https://github.com/antronic/that-baht-text-js|GitHub}
  */
 
-import { eachOf } from 'async'
-
 // options
 
 const primaryCurrency = 'บาท'
@@ -75,77 +73,7 @@ const convert = (numberInput) => {
 	return textOutput
 }
 
-// convert function with async
-
-const convertAsync = (numberInput) => {
-	let numberStr = numberInput.toString()
-	numberStr = numberStr.split('').reverse().join('')
-
-	let millionSubfix = ''
-	let textOutput = ''
-
-	return new Promise(
-		(done) => {
-			eachOf(numberStr, (number, i, callback) => {
-				const currentNumber = Number(number)
-				let numberText = numbersText[currentNumber]
-				let unitText = ''
-
-				// DEBUG
-				// console.log(`${i} -> ${i %7} -> ${currentNumber} -> ${Math.abs(i - 1) % 6} -> ${unitsText[i - 1 % 6]}`)
-
-				if (i !== 0) {
-					unitText = unitsText[Math.abs(i - 1) % 6]
-				}
-
-				if (i % 6 === 1 && currentNumber <= 2) {
-					if (currentNumber === 2) {
-						unitText = 'สิบ'
-						numberText = 'ยี่'
-					} else if (i > 6 && currentNumber === 1) {
-						unitText = 'สิบ'
-						numberText = ''
-					} else {
-						numberText = ''
-					}
-				}
-
-				if (i >= 6 && i % 6 === 0) {
-					if (currentNumber === 1) {
-						if (i + 1 < numberStr.length) {
-							numberText = 'เอ็ด'
-						}
-					}
-				}
-
-				if (currentNumber === 0) {
-					unitText = ''
-					numberText = ''
-				}
-
-				if (numberStr.length > 1 && i === 0 && currentNumber === 1) {
-					numberText = 'เอ็ด'
-				}
-
-				if (i >= 6 && i % 6 === 0) {
-					const millionCount = Math.floor(i / 12)
-					millionSubfix = 'ล้าน'.repeat(millionCount)
-				} else {
-					millionSubfix = ''
-				}
-
-				textOutput = numberText + unitText + millionSubfix + textOutput
-				callback()
-			}, () => {
-				done(textOutput)
-			})
-		},
-	)
-}
-
-// export default as convert without async
-
-export default (numberInput) => {
+const convertFullMoney = (numberInput) => {
 	const numberStr = parseFloat(numberInput).toFixed(2)
 
 	const decimalStr = numberStr.split('.')[0]
@@ -163,37 +91,14 @@ export default (numberInput) => {
 	return textOutput
 }
 
+// export default as convert without async
+export default convertFullMoney
+
 // exprot convert with async
-
-exports.async = (numberInput) => {
-	const numberStr = parseFloat(numberInput).toFixed(2)
-
-	const decimalStr = numberStr.split('.')[0]
-	const floatingStr = numberStr.split('.')[1]
-
-	let textOutput = ''
-
-	return new Promise(
-		(done) => {
-			convertAsync(decimalStr).then((str) => {
-				textOutput = str
-				if (floatingStr !== undefined && floatingStr !== '00') {
-					convertAsync(floatingStr)
-						.then((floatingStrOutput) => {
-							textOutput = `${textOutput}${primaryCurrency}${floatingStrOutput}${secondaryCurrency}`
-							done(textOutput)
-						})
-				} else {
-					textOutput = `${textOutput}${primaryCurrency}${fullMoney}`
-					done(textOutput)
-				}
-			})
-		},
-	)
-}
-
+exports.async = numberInput => (
+	new Promise(resolve => resolve(convertFullMoney(numberInput)))
+)
 
 // export for ES5
-
 module.exports = exports.default
 module.exports.async = exports.async

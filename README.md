@@ -1,6 +1,8 @@
 # Thai Baht Text JS
 
 [![Build Status](https://img.shields.io/travis/antronic/thai-baht-text-js.svg?style=flat-square)](https://travis-ci.org/antronic/thai-baht-text-js)
+[codecov]: https://codecov.io/gh/antronic/thai-baht-text-js
+[codecov-svg]: https://img.shields.io/codecov/c/github/antronic/thai-baht-text-js.svg
 [![NPM Version](https://img.shields.io/npm/v/thai-baht-text.svg?style=flat-square)](https://www.npmjs.com/package/thai-baht-text)
 [![NPM Download](https://img.shields.io/npm/dt/thai-baht-text.svg?style=flat-square)](https://www.npmjs.com/package/thai-baht-text)
 
@@ -46,7 +48,7 @@ money = 9007199254740991
 ThaiBaht.async(money)
 	.then((moneyTextOutput) => {
 		console.log(moneyTextOutput)
-		// OUTPUT: เก้าพ้นเจ็ดล้านล้านเอ็ดแสนเก้าหมื่นเก้าพ้นสองร้อยห้าสิบสี่ล้านเจ็ดแสนสี่หมื่นเก้าร้อยเก้าสิบเอ็ดบาทถ้วน
+		// OUTPUT: เก้าพันเจ็ดล้านล้านเอ็ดแสนเก้าหมื่นเก้าพันสองร้อยห้าสิบสี่ล้านเจ็ดแสนสี่หมื่นเก้าร้อยเก้าสิบเอ็ดบาทถ้วน
 	})
 ```
 #### More infomation [ES5 Example](https://github.com/antronic/thai-baht-text-js/blob/master/example/example_es5.js)
@@ -73,7 +75,7 @@ money = 9007199254740991
 ThaiBaht.async(money)
 	.then((moneyTextOutput) => {
 		console.log(moneyTextOutput)
-		// OUTPUT: เก้าพ้นเจ็ดล้านล้านเอ็ดแสนเก้าหมื่นเก้าพ้นสองร้อยห้าสิบสี่ล้านเจ็ดแสนสี่หมื่นเก้าร้อยเก้าสิบเอ็ดบาทถ้วน
+		// OUTPUT: เก้าพันเจ็ดล้านล้านเอ็ดแสนเก้าหมื่นเก้าพันสองร้อยห้าสิบสี่ล้านเจ็ดแสนสี่หมื่นเก้าร้อยเก้าสิบเอ็ดบาทถ้วน
 	})
 ```
 #### More infomation [ES6 Example](https://github.com/antronic/thai-baht-text-js/blob/master/example/example_es6.js)
@@ -107,7 +109,7 @@ Regrads,
 Jirachai Chansivanon
 ___
 <br /><br /><br />
-แปลง เลข เป็น บาทไทย, 
+แปลง เลข เป็น บาทไทย,
 
 thai baht text javascript,
 
