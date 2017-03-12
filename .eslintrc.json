@@ -32,5 +32,9 @@
             "error",
             200
         ]
+    },
+    "globals": {
+      "describe": true,
+      "it": true
     }
 }
