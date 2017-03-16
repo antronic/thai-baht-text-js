@@ -19,7 +19,6 @@ const convert = (numberInput) => {
 	let numberStr = numberInput.toString()
 	numberStr = numberStr.split('').reverse().join('')
 
-	let millionSubfix = ''
 	let textOutput = ''
 
 	numberStr.split('').map((number, i) => {
@@ -56,18 +55,11 @@ const convert = (numberInput) => {
 		}
 
 		if (currentNumber === 0) {
-			unitText = ''
+			unitText = (i >= 6 && i % 6 === 0) ? unitText : ''
 			numberText = ''
 		}
 
-		if (i >= 6 && i % 6 === 0) {
-			const millionCount = Math.floor(i / 12)
-			millionSubfix = 'ล้าน'.repeat(millionCount)
-		} else {
-			millionSubfix = ''
-		}
-
-		textOutput = numberText + unitText + millionSubfix + textOutput
+		textOutput = numberText + unitText + textOutput
 		return number
 	})
 	return textOutput
