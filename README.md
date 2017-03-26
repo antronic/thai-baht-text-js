@@ -6,9 +6,9 @@
 [![NPM Download](https://img.shields.io/npm/dt/thai-baht-text.svg?style=flat-square)](https://www.npmjs.com/package/thai-baht-text)
 [![License][license-svg]][license]
 [![codecov](https://codecov.io/gh/antronic/thai-baht-text-js)]
-[![codecov-svg](https://img.shields.io/codecov/c/github/antronic/thai-baht-text-js.svg)]
-[license]: https://opensource.org/licenses/MIT
-[license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
+![codecov-svg](https://img.shields.io/codecov/c/github/antronic/thai-baht-text-js.svg)
+![license](https://opensource.org/licenses/MIT)
+![license-svg](https://img.shields.io/badge/license-MIT-blue.svg)
 
 [Installation](https://github.com/antronic/thai-baht-text-js#installation) | [Usage](https://github.com/antronic/thai-baht-text-js#usage)
 
