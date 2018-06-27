@@ -44,6 +44,9 @@ describe('Thai Baht Text', () => {
 
 	it('should convert complex number to baht', () => {
 		expect(ThaiBaht(6321298)).to.equal('หกล้านสามแสนสองหมื่นหนึ่งพันสองร้อยเก้าสิบแปดบาทถ้วน')
+		expect(ThaiBaht(10034567)).to.equal('สิบล้านสามหมื่นสี่พันห้าร้อยหกสิบเจ็ดบาทถ้วน')
+		expect(ThaiBaht(20034567)).to.equal('ยี่สิบล้านสามหมื่นสี่พันห้าร้อยหกสิบเจ็ดบาทถ้วน')
+		expect(ThaiBaht(30034567.00)).to.equal('สามสิบล้านสามหมื่นสี่พันห้าร้อยหกสิบเจ็ดบาทถ้วน')
 	})
 
 	it('should convert number to baht with satang', () => {
