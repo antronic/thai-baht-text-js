@@ -12,9 +12,19 @@ const fullMoney = 'ถ้วน'
 const numbersText = 'ศูนย์,หนึ่ง,สอง,สาม,สี่,ห้า,หก,เจ็ด,แปด,เก้า,สิบ'.split(',')
 const unitsText = 'สิบ,ร้อย,พัน,หมื่น,แสน,ล้าน'.split(',')
 
+const getFractionalDigits = (numberInput) => {
+	return numberInput.split('.')[1]
+}
+
+const hasFractionalDigits = (numberInput) => {
+	return numberInput !== undefined && numberInput !== '00'
+}
+
+const getIntegerDigits = (numberInput) => {
+	return numberInput.split('.')[0]
+}
 
 // convert function without async
-
 const convert = (numberInput) => {
 	let numberStr = numberInput.toString()
 	numberStr = numberStr.split('').reverse().join('')
@@ -68,14 +78,13 @@ const convert = (numberInput) => {
 const convertFullMoney = (numberInput) => {
 	const numberStr = parseFloat(numberInput).toFixed(2)
 
-	const decimalStr = numberStr.split('.')[0]
-	const floatingStr = numberStr.split('.')[1]
+	const integerDigits = getIntegerDigits(numberStr)
+	const fractionalDigits = getFractionalDigits(numberStr)
 
-	let textOutput = ''
+	let textOutput = convert(integerDigits)
 
-	textOutput = convert(decimalStr)
-	if (floatingStr !== undefined && floatingStr !== '00') {
-		textOutput = `${textOutput}${primaryCurrency}${convert(floatingStr)}${secondaryCurrency}`
+	if (hasFractionalDigits(fractionalDigits)) {
+		textOutput = `${textOutput}${primaryCurrency}${convert(fractionalDigits)}${secondaryCurrency}`
 	} else {
 		textOutput = `${textOutput}${primaryCurrency}${fullMoney}`
 	}
