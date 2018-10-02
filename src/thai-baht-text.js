@@ -5,6 +5,10 @@
 
 // options
 
+const MAX_POSITION = 6
+const UNIT_POSITION = 0
+const TEN_POSITION = 1
+
 const primaryCurrency = 'บาท'
 const secondaryCurrency = 'สตางค์'
 const fullMoney = 'ถ้วน'
@@ -12,55 +16,92 @@ const fullMoney = 'ถ้วน'
 const numbersText = 'ศูนย์,หนึ่ง,สอง,สาม,สี่,ห้า,หก,เจ็ด,แปด,เก้า,สิบ'.split(',')
 const unitsText = 'สิบ,ร้อย,พัน,หมื่น,แสน,ล้าน'.split(',')
 
+const getFractionalDigits = (numberInput) => {
+	return numberInput.split('.')[1]
+}
+
+const hasFractionalDigits = (numberInput) => {
+	return numberInput !== undefined && numberInput !== '00'
+}
+
+const getIntegerDigits = (numberInput) => {
+	return numberInput.split('.')[0]
+}
+
+const reverseNumber = (number) => {
+	const numberStr = number.toString()
+	return numberStr.split('').reverse().join('')
+}
+
+const isZeroValue = (number) => {
+	return number == 0
+}
+
+const isUnitPostition = (position) => {
+	return position == UNIT_POSITION
+}
+
+const isTenPostition = (position) => {
+	return position % MAX_POSITION == TEN_POSITION
+}
+
+const isMillionsPosition = (position) => {
+	return (position >= MAX_POSITION && position % MAX_POSITION == 0)
+}
+
+const isLastPosition = (position, lengthOfDigits) => {
+	return position + 1 < lengthOfDigits
+}
+
+const getBathUnit = (position, number) => {
+
+	let unitText = ""
+
+	if (!isUnitPostition(position)) {
+		unitText = unitsText[Math.abs(position - 1) % MAX_POSITION]
+	}
+
+	if( isZeroValue(number) && !isMillionsPosition(position)){
+		unitText = ""
+	}
+
+	return unitText
+}
+
+const getBathText = (position, number, lengthOfDigits) => {
+
+	let numberText = numbersText[number]
+
+	if(isZeroValue(number)){
+		return "";
+	}
+
+	if (isTenPostition(position) && number == 1) {
+		numberText = ''
+	}
+
+	if (isTenPostition(position) && number == 2) {
+		numberText = 'ยี่'
+	}
+
+	if (isMillionsPosition(position) && isLastPosition(position, lengthOfDigits) && number == 1 ) {
+		numberText = 'เอ็ด'
+	}
+
+	if ( lengthOfDigits > 1 && isUnitPostition(position) && number == 1) {
+		numberText = 'เอ็ด'
+	}
+
+	return numberText
+}
 
 // convert function without async
-
 const convert = (numberInput) => {
-	let numberStr = numberInput.toString()
-	numberStr = numberStr.split('').reverse().join('')
 
+	const numberReverse = reverseNumber(numberInput)
 	let textOutput = ''
-
-	numberStr.split('').map((number, i) => {
-		const currentNumber = Number(number)
-		let numberText = numbersText[currentNumber]
-		let unitText = ''
-
-		if (i !== 0) {
-			unitText = unitsText[Math.abs(i - 1) % 6]
-		}
-
-		if (i % 6 === 1 && currentNumber <= 2) {
-			if (currentNumber === 2) {
-				unitText = 'สิบ'
-				numberText = 'ยี่'
-			} else if (i > 6 && currentNumber === 1) {
-				unitText = 'สิบ'
-				numberText = ''
-			} else {
-				numberText = ''
-			}
-		}
-
-		if (i >= 6 && i % 6 === 0) {
-			if (currentNumber === 1) {
-				if (i + 1 < numberStr.length) {
-					numberText = 'เอ็ด'
-				}
-			}
-		}
-
-		if (numberStr.length > 1 && i === 0 && currentNumber === 1) {
-			numberText = 'เอ็ด'
-		}
-
-		if (currentNumber === 0) {
-			unitText = (i >= 6 && i % 6 === 0) ? unitText : ''
-			numberText = ''
-		}
-
-		textOutput = numberText + unitText + textOutput
-		return number
+	numberReverse.split('').map((number, i) => {
+		textOutput = getBathText(i, number, numberReverse.length) + getBathUnit(i, number) + textOutput
 	})
 	return textOutput
 }
@@ -68,18 +109,16 @@ const convert = (numberInput) => {
 const convertFullMoney = (numberInput) => {
 	const numberStr = parseFloat(numberInput).toFixed(2)
 
-	const decimalStr = numberStr.split('.')[0]
-	const floatingStr = numberStr.split('.')[1]
+	const integerDigits = getIntegerDigits(numberStr)
+	const fractionalDigits = getFractionalDigits(numberStr)
 
-	let textOutput = ''
+	let textOutput = convert(integerDigits)
 
-	textOutput = convert(decimalStr)
-	if (floatingStr !== undefined && floatingStr !== '00') {
-		textOutput = `${textOutput}${primaryCurrency}${convert(floatingStr)}${secondaryCurrency}`
+	if (hasFractionalDigits(fractionalDigits)) {
+		textOutput = `${textOutput}${primaryCurrency}${convert(fractionalDigits)}${secondaryCurrency}`
 	} else {
 		textOutput = `${textOutput}${primaryCurrency}${fullMoney}`
 	}
-
 	return textOutput
 }
 
