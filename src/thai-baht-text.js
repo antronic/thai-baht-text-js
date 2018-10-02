@@ -99,8 +99,9 @@ const getBathText = (position, number, lengthOfDigits) => {
 const convert = (numberInput) => {
 
 	const numberReverse = reverseNumber(numberInput)
-	let textOutput = ''
-	numberReverse.split('').map((number, i) => {
+  let textOutput = ''
+  // console.log('>', numberReverse.split(''))
+	numberReverse.split('').each((number, i) => {
 		textOutput = getBathText(i, number, numberReverse.length) + getBathUnit(i, number) + textOutput
 	})
 	return textOutput
@@ -122,14 +123,17 @@ const convertFullMoney = (numberInput) => {
 	return textOutput
 }
 
-// export default as convert without async
-export default convertFullMoney
+// For each with better performance version
+Array.prototype.each = function (cb) {
+  for (let i = 0; i < this.length; i++) {
+    cb(this[i], i)
+  }
+}
 
-// exprot convert with async
-exports.async = numberInput => (
-	new Promise(resolve => resolve(convertFullMoney(numberInput)))
-)
-
-// export for ES5
-module.exports = exports.default
-module.exports.async = exports.async
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  module.exports = convertFullMoney
+  exports.default = convertFullMoney
+  exports.THBText = convertFullMoney
+} else {
+  window.THBText = convertFullMoney
+}

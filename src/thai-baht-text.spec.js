@@ -52,11 +52,4 @@ describe('Thai Baht Text', () => {
 	it('should convert number to baht with satang', () => {
 		expect(ThaiBaht(100.50)).to.equal('หนึ่งร้อยบาทห้าสิบสตางค์')
 	})
-
-	it('should convert number to bath asyncronously', (done) => {
-		ThaiBaht.async(100).then((moneyText) => {
-			expect(moneyText).to.equal('หนึ่งร้อยบาทถ้วน')
-			done()
-		})
-	})
 })
