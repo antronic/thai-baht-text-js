@@ -22,6 +22,12 @@ npm install thai-baht-text --save
 ```bash
 yarn add thai-baht-text
 ```
+<!--
+NOT AVAILABLE YET!
+##### or
+```bash
+bower install thai-baht-text --save
+``` -->
 
 
 ## Usage
@@ -30,26 +36,18 @@ yarn add thai-baht-text
 #### Javascript ES5
 
 ```javascript
-const ThaiBaht = require('thai-baht-text') // for ES5
+const THBText = require('thai-baht-text') // for ES5
 
 let money = 10050
-let moneyText = ThaiBaht(money)
+let moneyText = THBText(money)
 
 console.log(moneyText)
 // OUTPUT: หนึ่งหมื่นห้าสิบบาทถ้วน
 
 money = 12345678988888.50
 
-console.log(ThaiBaht(money))
+console.log(THBText(money))
 // OUTPUT: สิบสองล้านล้านสามแสนสี่หมื่นห้าพันหกร้อยเจ็ดสิบแปดล้านเก้าแสนแปดหมื่นแปดพันแปดร้อยแปดสิบแปดบาทห้าสิบสตางค์
-
-money = 9007199254740991
-
-ThaiBaht.async(money)
-	.then((moneyTextOutput) => {
-		console.log(moneyTextOutput)
-		// OUTPUT: เก้าพันเจ็ดล้านล้านเอ็ดแสนเก้าหมื่นเก้าพันสองร้อยห้าสิบสี่ล้านเจ็ดแสนสี่หมื่นเก้าร้อยเก้าสิบเอ็ดบาทถ้วน
-	})
 ```
 #### More infomation [ES5 Example](https://github.com/antronic/thai-baht-text-js/blob/master/example/example_es5.js)
 ___
@@ -57,28 +55,23 @@ ___
 #### Javascript ES6
 
 ```javascript
-import ThaiBaht from 'thai-baht-text' // for ES6
+import THBText from 'thai-baht-text' // for ES6
 
 let money = 10050
-let moneyText = ThaiBaht(money)
+let moneyText = THBText(money)
 
 console.log(moneyText)
 // OUTPUT: หนึ่งหมื่นห้าสิบบาทถ้วน
 
 money = 12345678988888.50
 
-console.log(ThaiBaht(money))
+console.log(THBText(money))
 // OUTPUT: สิบสองล้านล้านสามแสนสี่หมื่นห้าพันหกร้อยเจ็ดสิบแปดล้านเก้าแสนแปดหมื่นแปดพันแปดร้อยแปดสิบแปดบาทห้าสิบสตางค์
-
-money = 9007199254740991
-
-ThaiBaht.async(money)
-	.then((moneyTextOutput) => {
-		console.log(moneyTextOutput)
-		// OUTPUT: เก้าพันเจ็ดล้านล้านเอ็ดแสนเก้าหมื่นเก้าพันสองร้อยห้าสิบสี่ล้านเจ็ดแสนสี่หมื่นเก้าร้อยเก้าสิบเอ็ดบาทถ้วน
-	})
 ```
 #### More infomation [ES6 Example](https://github.com/antronic/thai-baht-text-js/blob/master/example/example_es6.js)
+
+
+#### More infomation [Browser version (UMD)](https://github.com/antronic/thai-baht-text-js/blob/master/example/example_umd.js)
 
 #### **CAUTION!**
 

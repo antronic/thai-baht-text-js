@@ -1,0 +1,34 @@
+{
+  "name": "thai-baht-text",
+  "description": "Convert number to Thai Bath as Text",
+  "main": "thai-baht-text.js",
+  "authors": [
+    "Jirachai Chansivanon <antronic.inc@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Thai",
+    "baht",
+    "text",
+    "ThaiBaht",
+    "ThaiBahtText",
+    "Thai",
+    "baht",
+    "Thai",
+    "baht",
+    "text",
+    "convert",
+    "javascript",
+    "convert",
+    "thai",
+    "baht"
+  ],
+  "homepage": "https://github.com/antronic/thai-baht-text-js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

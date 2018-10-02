@@ -1,4 +1,6 @@
-import THBText from 'thai-baht-text' // for ES6
+/* eslint-disable import/no-extraneous-dependencies */
+
+const THBText = window.THBText
 
 // This module is very simple to use
 // You just put the number that you want to convert into the first parameter
