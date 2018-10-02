@@ -5,6 +5,10 @@
 
 // options
 
+const MAX_POSITION = 6
+const UNIT_POSITION = 0
+const TEN_POSITION = 1
+
 const primaryCurrency = 'บาท'
 const secondaryCurrency = 'สตางค์'
 const fullMoney = 'ถ้วน'
@@ -34,11 +38,19 @@ const isZeroValue = (number) => {
 }
 
 const isUnitPostition = (position) => {
-	return position == 0
+	return position == UNIT_POSITION
+}
+
+const isTenPostition = (position) => {
+	return position % MAX_POSITION == TEN_POSITION
 }
 
 const isMillionsPosition = (position) => {
-	return (position >= 6 && position % 6 === 0)
+	return (position >= MAX_POSITION && position % MAX_POSITION == 0)
+}
+
+const isLastPosition = (position, lengthOfDigits) => {
+	return position + 1 < lengthOfDigits
 }
 
 const getBathUnit = (position, number) => {
@@ -46,7 +58,7 @@ const getBathUnit = (position, number) => {
 	let unitText = ""
 
 	if (!isUnitPostition(position)) {
-		unitText = unitsText[Math.abs(position - 1) % 6]
+		unitText = unitsText[Math.abs(position - 1) % MAX_POSITION]
 	}
 
 	if( isZeroValue(number) && !isMillionsPosition(position)){
@@ -56,47 +68,40 @@ const getBathUnit = (position, number) => {
 	return unitText
 }
 
+const getBathText = (position, number, lengthOfDigits) => {
+
+	let numberText = numbersText[number]
+
+	if(isZeroValue(number)){
+		return "";
+	}
+
+	if (isTenPostition(position) && number == 1) {
+		numberText = ''
+	}
+
+	if (isTenPostition(position) && number == 2) {
+		numberText = 'ยี่'
+	}
+
+	if (isMillionsPosition(position) && isLastPosition(position, lengthOfDigits) && number == 1 ) {
+		numberText = 'เอ็ด'
+	}
+
+	if ( lengthOfDigits > 1 && isUnitPostition(position) && number == 1) {
+		numberText = 'เอ็ด'
+	}
+
+	return numberText
+}
+
 // convert function without async
 const convert = (numberInput) => {
 
 	const numberReverse = reverseNumber(numberInput)
 	let textOutput = ''
-
 	numberReverse.split('').map((number, i) => {
-		const currentNumber = Number(number)
-		let numberText = numbersText[currentNumber]
-
-		let unitText
-		if (i % 6 === 1 && currentNumber <= 2) {
-			if (currentNumber === 2) {
-				numberText = 'ยี่'
-			} else if (i > 6 && currentNumber === 1) {
-				numberText = ''
-			} else {
-				numberText = ''
-			}
-		}
-
-		if (i >= 6 && i % 6 === 0) {
-			if (currentNumber === 1) {
-				if (i + 1 < numberReverse.length) {
-					numberText = 'เอ็ด'
-				}
-			}
-		}
-
-		if (numberReverse.length > 1 && i === 0 && currentNumber === 1) {
-			numberText = 'เอ็ด'
-		}
-
-		if (currentNumber === 0) {
-			unitText = (i >= 6 && i % 6 === 0) ? unitText : ''
-			numberText = ''
-		}
-
-		unitText = getBathUnit(i, number)
-		textOutput = numberText + unitText + textOutput
-		return number
+		textOutput = getBathText(i, number, numberReverse.length) + getBathUnit(i, number) + textOutput
 	})
 	return textOutput
 }
