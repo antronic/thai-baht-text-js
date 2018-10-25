@@ -16,11 +16,11 @@ ___
 ## Installation
 #### วิธีติดตั้ง
 ```bash
-npm install thai-baht-text --save
+npm install thai-baht-text async --save
 ```
 ##### or
 ```bash
-yarn add thai-baht-text
+yarn add thai-baht-text async
 ```
 <!--
 NOT AVAILABLE YET!
