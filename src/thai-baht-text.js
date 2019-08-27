@@ -9,86 +9,67 @@ const MAX_POSITION = 6
 const UNIT_POSITION = 0
 const TEN_POSITION = 1
 
-const primaryCurrency = 'บาท'
-const secondaryCurrency = 'สตางค์'
-const fullMoney = 'ถ้วน'
+const PRIMARY_UNIT = 'บาท'
+const SECONDARY_UNIT = 'สตางค์'
+const WHOLE_NUMBER_TEXT = 'ถ้วน'
 
-const numbersText = 'ศูนย์,หนึ่ง,สอง,สาม,สี่,ห้า,หก,เจ็ด,แปด,เก้า,สิบ'.split(',')
-const unitsText = 'สิบ,ร้อย,พัน,หมื่น,แสน,ล้าน'.split(',')
+const NUMBER_TEXTS = 'ศูนย์,หนึ่ง,สอง,สาม,สี่,ห้า,หก,เจ็ด,แปด,เก้า,สิบ'.split(',')
+const UNIT_TEXTS = 'สิบ,ร้อย,พัน,หมื่น,แสน,ล้าน'.split(',')
 
-const getFractionalDigits = (numberInput) => {
-	return numberInput.split('.')[1]
-}
+const getIntegerDigits = numberInput => parseInt(numberInput.split('.')[0], 10).toString()
+const getFractionalDigits = numberInput => parseInt(numberInput.split('.')[1], 10).toString()
 
-const hasFractionalDigits = (numberInput) => {
-	return numberInput !== undefined && numberInput !== '00'
-}
+const hasFractionalDigits = numberInput => numberInput !== undefined && numberInput != '0'
 
-const getIntegerDigits = (numberInput) => {
-	return numberInput.split('.')[0]
-}
+const isZeroValue = number => number == 0
+const isUnitPosition = position => position == UNIT_POSITION
+const isTenPosition = position => position % MAX_POSITION == TEN_POSITION
+const isMillionsPosition = position => (position >= MAX_POSITION && position % MAX_POSITION == 0)
+const isLastPosition = (position, lengthOfDigits) => position + 1 < lengthOfDigits
 
 const reverseNumber = (number) => {
 	const numberStr = number.toString()
 	return numberStr.split('').reverse().join('')
 }
 
-const isZeroValue = (number) => {
-	return number == 0
-}
-
-const isUnitPostition = (position) => {
-	return position == UNIT_POSITION
-}
-
-const isTenPostition = (position) => {
-	return position % MAX_POSITION == TEN_POSITION
-}
-
-const isMillionsPosition = (position) => {
-	return (position >= MAX_POSITION && position % MAX_POSITION == 0)
-}
-
-const isLastPosition = (position, lengthOfDigits) => {
-	return position + 1 < lengthOfDigits
-}
-
 const getBathUnit = (position, number) => {
+	let unitText = ''
 
-	let unitText = ""
-
-	if (!isUnitPostition(position)) {
-		unitText = unitsText[Math.abs(position - 1) % MAX_POSITION]
+	if (!isUnitPosition(position)) {
+		unitText = UNIT_TEXTS[Math.abs(position - 1) % MAX_POSITION]
 	}
 
-	if( isZeroValue(number) && !isMillionsPosition(position)){
-		unitText = ""
+	if (isZeroValue(number) && !isMillionsPosition(position)) {
+		unitText = ''
 	}
 
 	return unitText
 }
 
 const getBathText = (position, number, lengthOfDigits) => {
+	let numberText = NUMBER_TEXTS[number]
 
-	let numberText = numbersText[number]
-
-	if(isZeroValue(number)){
-		return "";
+	if (isZeroValue(number)) {
+		return ''
 	}
 
-	if (isTenPostition(position) && number == 1) {
+	if (isTenPosition(position) && number == 1) {
 		numberText = ''
 	}
 
-	if (isTenPostition(position) && number == 2) {
+	if (isTenPosition(position) && number == 2) {
 		numberText = 'ยี่'
 	}
 
-	if (isMillionsPosition(position) && isLastPosition(position, lengthOfDigits) && number == 1 ) {
+	if (isMillionsPosition(position) && isLastPosition(position, lengthOfDigits) && number == 1) {
 		numberText = 'เอ็ด'
 	}
 
-	if ( lengthOfDigits > 1 && isUnitPostition(position) && number == 1) {
+	if (lengthOfDigits == 2 && isLastPosition(position, lengthOfDigits) && number == 1) {
+		numberText = 'เอ็ด'
+	}
+
+	if (lengthOfDigits > 1 && isUnitPosition(position) && number == 1) {
 		numberText = 'เอ็ด'
 	}
 
@@ -97,43 +78,47 @@ const getBathText = (position, number, lengthOfDigits) => {
 
 // convert function without async
 const convert = (numberInput) => {
-
 	const numberReverse = reverseNumber(numberInput)
-  let textOutput = ''
-  // console.log('>', numberReverse.split(''))
-	numberReverse.split('').each((number, i) => {
-		textOutput = getBathText(i, number, numberReverse.length) + getBathUnit(i, number) + textOutput
+	let textOutput = ''
+	// console.log('>', numberReverse.split(''))
+	numberReverse.split('').forEach((number, i) => {
+		textOutput = `${getBathText(i, number, numberReverse.length)}${getBathUnit(i, number)}${textOutput}`
 	})
 	return textOutput
 }
 
+const parseFloatWithPrecision = (number, precision = 2) => {
+	const numberFloatStr = parseFloat(number).toString().split('.')
+	const integerUnitStr = numberFloatStr[0]
+	const fractionalUnitStr = (numberFloatStr.length == 2) ? numberFloatStr[1].substring(0, precision) : '00'
+	return parseFloat(`${integerUnitStr}.${fractionalUnitStr}`).toFixed(precision)
+}
+
 const convertFullMoney = (numberInput) => {
-	const numberStr = parseFloat(numberInput).toFixed(2)
+	const numberStr = parseFloatWithPrecision(numberInput)
 
 	const integerDigits = getIntegerDigits(numberStr)
 	const fractionalDigits = getFractionalDigits(numberStr)
 
-	let textOutput = convert(integerDigits)
-
-	if (hasFractionalDigits(fractionalDigits)) {
-		textOutput = `${textOutput}${primaryCurrency}${convert(fractionalDigits)}${secondaryCurrency}`
-	} else {
-		textOutput = `${textOutput}${primaryCurrency}${fullMoney}`
+	const intTextOutput = convert(integerDigits)
+	const textOutput = []
+	if (intTextOutput) {
+		textOutput.push(`${[intTextOutput, PRIMARY_UNIT].join('')}`)
 	}
-	return textOutput
-}
+	if (intTextOutput && !hasFractionalDigits(fractionalDigits)) {
+		textOutput.push(WHOLE_NUMBER_TEXT)
+	}
+	if (hasFractionalDigits(fractionalDigits) && convert(fractionalDigits)) {
+		textOutput.push(`${[convert(fractionalDigits), SECONDARY_UNIT].join('')}`)
+	}
 
-// For each with better performance version
-Array.prototype.each = function (cb) {
-  for (let i = 0; i < this.length; i++) {
-    cb(this[i], i)
-  }
+	return textOutput.join('')
 }
 
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-  module.exports = convertFullMoney
-  exports.default = convertFullMoney
-  exports.THBText = convertFullMoney
+	module.exports = convertFullMoney
+	exports.default = convertFullMoney
+	exports.THBText = convertFullMoney
 } else {
-  window.THBText = convertFullMoney
+	window.THBText = convertFullMoney
 }
