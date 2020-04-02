@@ -1,10 +1,9 @@
 language: node_js
 node_js:
   - "node"
-  - "7"
-  - "6"
-  - "5"
-  - "4"
+  - "13"
+  - "12"
+  - "10"
 script: "npm test"
 before_script:
   - npm install -g codecov

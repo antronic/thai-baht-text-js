@@ -4,7 +4,7 @@
   "description": "Convert number to Thai Bath as Text",
   "main": "thai-baht-text.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test yarn nyc --require @babel/register --all mocha src/*.spec.js",
+    "test": "cross-env NODE_ENV=test nyc --require @babel/register --all mocha src/*.spec.js",
     "build": "babel ./src/thai-baht-text.js -o ./thai-baht-text.js"
   },
   "repository": {
