@@ -1,5 +1,11 @@
 /node_modules
 coverage
 .nyc_output
+
+# Log
 logs
 *.log
+
+# Package manager cahce
+yarn.lock
+package-lock.json
