@@ -1,11 +1,9 @@
 {
-	"presets": [
-		"es2015"
-	],
+	"presets": ["@babel/preset-env"],
 	"minified": true,
 	"env": {
     "test": {
-      "plugins": ["istanbul"]
+			"plugins": ["istanbul"]
     }
   }
 }
