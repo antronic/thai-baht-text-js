@@ -10,9 +10,10 @@
 
 Convert number to Thai Baht as Text
 
-แปลง เลข ให้เป็น หน่วยบาทไทย
+แปลงเลขให้เป็นหน่วยบาทไทย
 
 ___
+
 ## Installation
 #### วิธีติดตั้ง
 ```bash
@@ -31,6 +32,7 @@ bower install thai-baht-text --save
 
 
 ## Usage
+
 #### วิธีการใช้งาน
 
 #### Javascript ES5
@@ -68,20 +70,17 @@ money = 12345678988888.50
 console.log(THBText(money))
 // OUTPUT: สิบสองล้านล้านสามแสนสี่หมื่นห้าพันหกร้อยเจ็ดสิบแปดล้านเก้าแสนแปดหมื่นแปดพันแปดร้อยแปดสิบแปดบาทห้าสิบสตางค์
 ```
+
 #### More infomation [ES6 Example](https://github.com/antronic/thai-baht-text-js/blob/master/example/example_es6.js)
 
 
 #### More infomation [Browser version (UMD)](https://github.com/antronic/thai-baht-text-js/blob/master/example/example_umd.js)
 
-#### **CAUTION!**
+#### CAUTION!
 
-You can use number that doesn't over than 9007199254740991
+You can use number that doesn't over than `9007199254740991` that is `MAX_SAFE_INTEGER` of javascript.
 
-that is MAX_SAFE_INTEGER of javascript.
-
-คุณสามารถใส่เลขได้ไม่เกิน 9007199254740991
-
-ซึ่งเป็น MAX_SAFE_INTEGER ของ javascript
+คุณสามารถใส่เลขได้ไม่เกิน `9007199254740991` ซึ่งเป็น `MAX_SAFE_INTEGER` ของ javascript
 ___
 ## Library & Development Tools
 * Javascript ES6
@@ -97,7 +96,7 @@ If you found bugs or some missing point, please send pull request back or open a
 Thank you so much 😃
 <br /><br />
 
-Regrads,
+Regards,
 
 Jirachai Chansivanon
 ___
