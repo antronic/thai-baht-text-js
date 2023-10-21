@@ -87,6 +87,10 @@ ___
 * [Async](https://github.com/caolan/async)
 * Babel
 
+## Development
+* `npm run test` to run all tests in this project
+* `npm run test:watch` to run all tests in watch mode. This allows us to develop/refactor code and get fast feedback to ensure we don't break anything.
+
 ## License
 The Thai-Baht-Text JS is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
