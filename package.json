@@ -29,12 +29,13 @@
     "url": "https://github.com/antronic/thai-baht-text-js/issues"
   },
   "homepage": "https://github.com/antronic/thai-baht-text-js#readme",
-  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/register": "^7.9.0",
+    "@stryker-mutator/core": "^7.3.0",
+    "@stryker-mutator/mocha-runner": "^7.3.0",
     "babel-plugin-istanbul": "^6.0.0",
     "chai": "^4.2.0",
     "cross-env": "^7.0.2",
