@@ -9,3 +9,7 @@ logs
 # Package manager cahce
 yarn.lock
 package-lock.json
+
+# Stryker
+.stryker-tmp
+reports

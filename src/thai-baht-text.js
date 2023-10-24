@@ -65,10 +65,6 @@ const getBathText = (position, number, lengthOfDigits) => {
 		numberText = 'เอ็ด'
 	}
 
-	if (lengthOfDigits == 2 && isLastPosition(position, lengthOfDigits) && number == 1) {
-		numberText = 'เอ็ด'
-	}
-
 	if (lengthOfDigits > 1 && isUnitPosition(position) && number == 1) {
 		numberText = 'เอ็ด'
 	}
@@ -90,7 +86,7 @@ const convert = (numberInput) => {
 const parseFloatWithPrecision = (number, precision = 2) => {
 	const numberFloatStr = parseFloat(number).toString().split('.')
 	const integerUnitStr = numberFloatStr[0]
-	const fractionalUnitStr = (numberFloatStr.length == 2) ? numberFloatStr[1].substring(0, precision) : '00'
+	const fractionalUnitStr = (numberFloatStr.length == 2) ? numberFloatStr[1].substring(0, precision) : ''
 	return parseFloat(`${integerUnitStr}.${fractionalUnitStr}`).toFixed(precision)
 }
 
