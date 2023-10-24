@@ -86,6 +86,7 @@ ___
 * Javascript ES6
 * [Async](https://github.com/caolan/async)
 * Babel
+* [Stryker](https://stryker-mutator.io/)
 
 ## License
 The Thai-Baht-Text JS is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

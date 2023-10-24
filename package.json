@@ -5,6 +5,7 @@
   "main": "thai-baht-text.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test nyc --require @babel/register --all mocha src/*.spec.js",
+    "test:mutation": "npx stryker run",
     "build": "babel ./src/thai-baht-text.js -o ./thai-baht-text.js"
   },
   "repository": {
