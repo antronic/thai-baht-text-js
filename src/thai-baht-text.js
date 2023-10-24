@@ -65,10 +65,6 @@ const getBathText = (position, number, lengthOfDigits) => {
 		numberText = 'เอ็ด'
 	}
 
-	if (lengthOfDigits == 2 && isLastPosition(position, lengthOfDigits) && number == 1) {
-		numberText = 'เอ็ด'
-	}
-
 	if (lengthOfDigits > 1 && isUnitPosition(position) && number == 1) {
 		numberText = 'เอ็ด'
 	}
