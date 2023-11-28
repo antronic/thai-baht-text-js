@@ -5,6 +5,7 @@
   "main": "thai-baht-text.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test nyc --require @babel/register --all mocha src/*.spec.js",
+    "test:watch": "cross-env NODE_ENV=test nyc --require @babel/register --all mocha --watch src/*.spec.js",
     "build": "babel ./src/thai-baht-text.js -o ./thai-baht-text.js"
   },
   "repository": {
