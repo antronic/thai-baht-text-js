@@ -3,6 +3,7 @@
   "version": "1.0.8",
   "description": "Convert number to Thai Bath as Text",
   "main": "thai-baht-text.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "cross-env NODE_ENV=test nyc --require @babel/register --all mocha src/*.spec.js",
     "test:watch": "cross-env NODE_ENV=test nyc --require @babel/register --all mocha --watch src/*.spec.js",
