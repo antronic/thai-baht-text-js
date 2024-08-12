@@ -6,14 +6,14 @@
 [![license-svg](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 ![ts](https://flat.badgen.net/badge/Built%20With/TypeScript/blue)
 
-[Installation](##installation--%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%87) | [Usage](#usage--%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99)
+![Thai Baht Text JS](/content/thai-baht-text-cover.jpg)
+
+[Installation](#%EF%B8%8F-installation--%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%87) | [Usage](#%EF%B8%8F-usage--%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99)
 
 
 >### Now, Thai Baht text supports TypeScript 🎉!!
 
 Thai Baht Text JS converts numbers into Thai text. It provides flexibility as a cross-platform library for both browser and Node.js, written in TypeScript.
-
-In the browser, you can simply add `thai-baht-text.min.js` in a script tag without needing to install any additional libraries or polyfills.
 
 ```Javascript
 > 10050
@@ -58,6 +58,21 @@ money = 12345678988888.50
 console.log(ThaiBahtText(money))
 // OUTPUT: สิบสองล้านล้านสามแสนสี่หมื่นห้าพันหกร้อยเจ็ดสิบแปดล้านเก้าแสนแปดหมื่นแปดพันแปดร้อยแปดสิบแปดบาทห้าสิบสตางค์
 ```
+
+### In the browser
+
+Since Thai Baht Text JS is built as a UMD module, you can simply add `thai-baht-text.min.js` as the `src` in a script tag in the browser without needing to install any additional libraries or polyfills.
+
+```html
+  ...
+  <script src="https://cdn.jsdelivr.net/npm/thai-baht-text/dist/thai-baht-text.min.js"></script>
+  <script>
+    console.log(ThaiBahtText(12500.25))
+    // หนึ่งหมื่นสองพันห้าร้อยบาทยี่สิบห้าสตางค์
+  </script>
+</body>
+```
+
 ### More infomation
 - **[CommonJS Example](/example/example_es5.js)**
 - **[ES Module Example](/example/example_es6.js)**

@@ -1,6 +1,10 @@
 src
 tests
 example
+content
+coverage
+node_modules
+old
 
 .vscode
 .eslintrc
@@ -8,6 +12,3 @@ example
 .travis.yml
 .bower.json
 .nyc_output
-coverage
-node_modules
-old
