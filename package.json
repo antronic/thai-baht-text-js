@@ -3,7 +3,7 @@
   "version": "2.0.1-3",
   "description": "Convert number to Thai Bath as Text",
   "main": "dist/thai-baht-text.min.js",
-  "types": "./index.d.ts",
+  "types": "index.d.ts",
   "scripts": {
     "test-mocha": "ts-mocha tests/unit/*.spec.ts",
     "test-mocha-watch": "ts-mocha --watch src/*.spec.js",

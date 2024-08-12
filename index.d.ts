@@ -11,4 +11,7 @@ interface Window {
 export as namespace ThaiBahtText;
 
 export { ThaiBahtText, ThaiBahtText as THBText };
-export default ThaiBahtText;
+
+declare module 'thai-baht-text' {
+  export default ThaiBahtText;
+}
