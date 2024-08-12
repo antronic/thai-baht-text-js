@@ -13,8 +13,6 @@
 
 Thai Baht Text JS converts numbers into Thai text. It provides flexibility as a cross-platform library for both browser and Node.js, written in TypeScript.
 
-In the browser, you can simply add `thai-baht-text.min.js` in a script tag without needing to install any additional libraries or polyfills.
-
 ```Javascript
 > 10050
 // หนึ่งหมื่นห้าสิบบาทถ้วน
@@ -58,6 +56,19 @@ money = 12345678988888.50
 console.log(ThaiBahtText(money))
 // OUTPUT: สิบสองล้านล้านสามแสนสี่หมื่นห้าพันหกร้อยเจ็ดสิบแปดล้านเก้าแสนแปดหมื่นแปดพันแปดร้อยแปดสิบแปดบาทห้าสิบสตางค์
 ```
+
+In the browser, you can simply add `thai-baht-text.min.js` in a script tag without needing to install any additional libraries or polyfills.
+
+```html
+  ...
+  <script src="https://cdn.jsdelivr.net/npm/thai-baht-text/dist/thai-baht-text.min.js"></script>
+  <script>
+    console.log(ThaiBahtText(12500.25))
+    // หนึ่งหมื่นสองพันห้าร้อยบาทยี่สิบห้าสตางค์
+  </script>
+</body>
+```
+
 ### More infomation
 - **[CommonJS Example](/example/example_es5.js)**
 - **[ES Module Example](/example/example_es6.js)**
