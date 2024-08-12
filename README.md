@@ -38,6 +38,8 @@ bower install thai-baht-text --save
 
 ## ⚙️ Usage | วิธีการใช้งาน
 
+**[Live Demo](#)** (Coming soon)
+
 ### Node.js
 ```javascript
 // ----CommonJS----
