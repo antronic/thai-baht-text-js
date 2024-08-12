@@ -1,6 +1,6 @@
 {
   "name": "thai-baht-text",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Convert number to Thai Bath as Text",
   "main": "dist/thai-baht-text.min.js",
   "types": "index.d.ts",
