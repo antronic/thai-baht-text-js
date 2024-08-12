@@ -1,27 +1,32 @@
 # Thai Baht Text JS
 
-[![Build Status](https://img.shields.io/travis/antronic/thai-baht-text-js.svg?style=flat-square)](https://travis-ci.org/antronic/thai-baht-text-js)
 [![NPM Download](https://img.shields.io/npm/dt/thai-baht-text.svg?style=flat-square)](https://www.npmjs.com/package/thai-baht-text)
 [![codecov-svg](https://img.shields.io/codecov/c/github/antronic/thai-baht-text-js.svg?style=flat-square)](https://codecov.io/gh/antronic/thai-baht-text-js)
 [![NPM Version](https://img.shields.io/npm/v/thai-baht-text.svg?style=flat-square)](https://www.npmjs.com/package/thai-baht-text)
 [![license-svg](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+![ts](https://flat.badgen.net/badge/Built%20With/TypeScript/blue)
 
-[Installation](https://github.com/antronic/thai-baht-text-js#installation) | [Usage](https://github.com/antronic/thai-baht-text-js#usage)
+[Installation](#installation) | [Usage](#usage)
 
-Convert number to Thai Baht as Text
 
-แปลงเลขให้เป็นหน่วยบาทไทย
+>### Now, Thai Baht text supports TypeScript 🎉!!
 
-___
+Thai Baht Text JS converts numbers into Thai text. It provides flexibility as a cross-platform library for both browser and Node.js, written in TypeScript.
 
-## Installation
-#### วิธีติดตั้ง
+In the browser, you can simply add `thai-baht-text.min.js` in a script tag without needing to install any additional libraries or polyfills.
+
+```Javascript
+> 10050
+// หนึ่งหมื่นห้าสิบบาทถ้วน
+```
+
+## Installation | วิธีติดตั้ง
 ```bash
-npm install thai-baht-text async --save
+npm install thai-baht-text --save
 ```
 ##### or
 ```bash
-yarn add thai-baht-text async
+yarn add thai-baht-text
 ```
 <!--
 NOT AVAILABLE YET!
@@ -31,50 +36,48 @@ bower install thai-baht-text --save
 ``` -->
 
 
-## Usage
-
-#### วิธีการใช้งาน
+## Usage | วิธีการใช้งาน
 
 #### Javascript ES5
 
 ```javascript
-const THBText = require('thai-baht-text') // for ES5
+const ThaiBahtText = require('thai-baht-text') // for ES5
 
 let money = 10050
-let moneyText = THBText(money)
+let moneyText = ThaiBahtText(money)
 
 console.log(moneyText)
 // OUTPUT: หนึ่งหมื่นห้าสิบบาทถ้วน
 
 money = 12345678988888.50
 
-console.log(THBText(money))
+console.log(ThaiBahtText(money))
 // OUTPUT: สิบสองล้านล้านสามแสนสี่หมื่นห้าพันหกร้อยเจ็ดสิบแปดล้านเก้าแสนแปดหมื่นแปดพันแปดร้อยแปดสิบแปดบาทห้าสิบสตางค์
 ```
-#### More infomation [ES5 Example](https://github.com/antronic/thai-baht-text-js/blob/master/example/example_es5.js)
+#### More infomation [ES5 Example](/example/example_es5.js)
 ___
 
 #### Javascript ES6
 
 ```javascript
-import THBText from 'thai-baht-text' // for ES6
+import ThaiBahtText from 'thai-baht-text'
 
 let money = 10050
-let moneyText = THBText(money)
+const moneyText = ThaiBahtText(money)
 
 console.log(moneyText)
 // OUTPUT: หนึ่งหมื่นห้าสิบบาทถ้วน
 
 money = 12345678988888.50
 
-console.log(THBText(money))
+console.log(ThaiBahtText(money))
 // OUTPUT: สิบสองล้านล้านสามแสนสี่หมื่นห้าพันหกร้อยเจ็ดสิบแปดล้านเก้าแสนแปดหมื่นแปดพันแปดร้อยแปดสิบแปดบาทห้าสิบสตางค์
 ```
 
-#### More infomation [ES6 Example](https://github.com/antronic/thai-baht-text-js/blob/master/example/example_es6.js)
+#### More infomation [ES6 Example](/example/example_es6.js)
 
 
-#### More infomation [Browser version (UMD)](https://github.com/antronic/thai-baht-text-js/blob/master/example/example_umd.js)
+#### More infomation [Browser version (UMD)](/example/example_umd)
 
 #### CAUTION!
 
@@ -82,10 +85,6 @@ You can use number that doesn't over than `9007199254740991` that is `MAX_SAFE_I
 
 คุณสามารถใส่เลขได้ไม่เกิน `9007199254740991` ซึ่งเป็น `MAX_SAFE_INTEGER` ของ javascript
 ___
-## Library & Development Tools
-* Javascript ES6
-* [Async](https://github.com/caolan/async)
-* Babel
 
 ## Development
 * `npm run test` to run all tests in this project
@@ -110,3 +109,9 @@ ___
 thai baht text javascript,
 
 thai baht text js
+that-baht-text.js
+that-baht-text.js typescript
+
+Convert number to Thai Baht as Text
+
+แปลงเลขให้เป็นหน่วยบาทไทย

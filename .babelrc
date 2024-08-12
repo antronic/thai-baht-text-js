@@ -1,9 +1,0 @@
-{
-	"presets": ["@babel/preset-env"],
-	"minified": true,
-	"env": {
-    "test": {
-			"plugins": ["istanbul"]
-    }
-  }
-}
