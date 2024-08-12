@@ -57,7 +57,9 @@ console.log(ThaiBahtText(money))
 // OUTPUT: สิบสองล้านล้านสามแสนสี่หมื่นห้าพันหกร้อยเจ็ดสิบแปดล้านเก้าแสนแปดหมื่นแปดพันแปดร้อยแปดสิบแปดบาทห้าสิบสตางค์
 ```
 
-In the browser, you can simply add `thai-baht-text.min.js` in a script tag without needing to install any additional libraries or polyfills.
+### In the browser
+
+Since Thai Baht Text JS is built as a UMD module, you can simply add `thai-baht-text.min.js` as the `src` in a script tag in the browser without needing to install any additional libraries or polyfills.
 
 ```html
   ...
