@@ -6,7 +6,7 @@
 [![license-svg](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 ![ts](https://flat.badgen.net/badge/Built%20With/TypeScript/blue)
 
-[Installation](#installation) | [Usage](#usage)
+[Installation](##installation--%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%87) | [Usage](#usage--%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99)
 
 
 >### Now, Thai Baht text supports TypeScript 🎉!!
@@ -24,7 +24,7 @@ In the browser, you can simply add `thai-baht-text.min.js` in a script tag witho
 ```bash
 npm install thai-baht-text --save
 ```
-##### or
+or
 ```bash
 yarn add thai-baht-text
 ```
@@ -54,7 +54,7 @@ money = 12345678988888.50
 console.log(ThaiBahtText(money))
 // OUTPUT: สิบสองล้านล้านสามแสนสี่หมื่นห้าพันหกร้อยเจ็ดสิบแปดล้านเก้าแสนแปดหมื่นแปดพันแปดร้อยแปดสิบแปดบาทห้าสิบสตางค์
 ```
-#### More infomation [ES5 Example](/example/example_es5.js)
+**More infomation [ES5 Example](/example/example_es5.js)**
 ___
 
 #### Javascript ES6
@@ -74,17 +74,10 @@ console.log(ThaiBahtText(money))
 // OUTPUT: สิบสองล้านล้านสามแสนสี่หมื่นห้าพันหกร้อยเจ็ดสิบแปดล้านเก้าแสนแปดหมื่นแปดพันแปดร้อยแปดสิบแปดบาทห้าสิบสตางค์
 ```
 
-#### More infomation [ES6 Example](/example/example_es6.js)
+**More infomation [ES6 Example](/example/example_es6.js)**
 
 
-#### More infomation [Browser version (UMD)](/example/example_umd)
-
-#### CAUTION!
-
-You can use number that doesn't over than `9007199254740991` that is `MAX_SAFE_INTEGER` of javascript.
-
-คุณสามารถใส่เลขได้ไม่เกิน `9007199254740991` ซึ่งเป็น `MAX_SAFE_INTEGER` ของ javascript
-___
+**More infomation [Browser version (UMD)](/example/example_umd)**
 
 ## Development
 * `npm run test` to run all tests in this project
