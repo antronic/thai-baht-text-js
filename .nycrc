@@ -1,18 +1,13 @@
 {
   "include": [
-    "src"
+    "src/**/*.ts"
   ],
   "exclude": [
-    "src/**/*.spec.js"
+    "tests/**/*.spec.js"
   ],
-  "reporter": [
-    "lcov",
-    "text"
-  ],
-  "require": [
-    "babel-register"
-  ],
-  "cache": true,
-  "sourceMap": false,
-  "instrument": false
+  "all": true,
+  "sourceMap": true,
+  "cache": false,
+  "check-coverage": true,
+  "extension": [".ts"]
 }

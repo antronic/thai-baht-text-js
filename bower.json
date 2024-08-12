@@ -1,9 +1,10 @@
 {
   "name": "thai-baht-text",
   "description": "Convert number to Thai Bath as Text",
-  "main": "thai-baht-text.js",
+  "main": "dist/thai-baht-text.min.js",
+  "version": "2.0.0",
   "authors": [
-    "Jirachai Chansivanon <antronic.inc@gmail.com>"
+    "Jirachai Chansivanon <jirachai.c@outlook.com>"
   ],
   "license": "MIT",
   "keywords": [
@@ -21,7 +22,12 @@
     "javascript",
     "convert",
     "thai",
-    "baht"
+    "baht",
+    "typescript",
+    "Thai baht text js",
+    "แปลงเลขไทย",
+    "แปลงเลขเงินไทย",
+    "convert thai baht"
   ],
   "homepage": "https://github.com/antronic/thai-baht-text-js",
   "ignore": [
@@ -29,6 +35,7 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "old"
   ]
 }

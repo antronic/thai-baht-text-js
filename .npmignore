@@ -1,0 +1,13 @@
+src
+tests
+example
+
+.vscode
+.eslintrc
+.nycrc
+.travis.yml
+.bower.json
+.nyc_output
+coverage
+node_modules
+old

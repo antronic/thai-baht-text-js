@@ -1,12 +1,15 @@
 {
   "name": "thai-baht-text",
-  "version": "1.0.8",
+  "version": "2.0.1-3",
   "description": "Convert number to Thai Bath as Text",
-  "main": "thai-baht-text.js",
+  "main": "dist/thai-baht-text.min.js",
+  "types": "./index.d.ts",
   "scripts": {
-    "test": "cross-env NODE_ENV=test nyc --require @babel/register --all mocha src/*.spec.js",
-    "test:watch": "cross-env NODE_ENV=test nyc --require @babel/register --all mocha --watch src/*.spec.js",
-    "build": "babel ./src/thai-baht-text.js -o ./thai-baht-text.js"
+    "test-mocha": "ts-mocha tests/unit/*.spec.ts",
+    "test-mocha-watch": "ts-mocha --watch src/*.spec.js",
+    "test": "cross-env NODE_ENV=test nyc --all npm run test-mocha",
+    "test:watch": "cross-env NODE_ENV=test nyc --all npm run test-mocha-watch",
+    "build": "tsc && uglifyjs --mangle webkit,v8 ./dist/thai-baht-text.js -o ./dist/thai-baht-text.min.js"
   },
   "repository": {
     "type": "git",
@@ -22,27 +25,33 @@
     "Thai baht text",
     "convert",
     "javascript",
+    "typescript",
+    "Thai baht text js",
+    "แปลงเลขไทย",
+    "แปลงเลขเงินไทย",
     "convert thai baht"
   ],
-  "author": "Jirachai Chansivanon <antronic.inc@gmail.com>",
+  "author": "Jirachai Chansivanon <jirachai.c@outlook.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/antronic/thai-baht-text-js/issues"
   },
   "homepage": "https://github.com/antronic/thai-baht-text-js#readme",
-  "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
-    "@babel/register": "^7.9.0",
-    "babel-plugin-istanbul": "^6.0.0",
-    "chai": "^4.2.0",
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@types/chai": "^4.3.17",
+    "@types/jsdom": "^21.1.7",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^22.2.0",
+    "chai": "^4.5.0",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
-    "mocha": "^7.1.1",
-    "nyc": "^15.0.0"
+    "mocha": "^10.7.3",
+    "nyc": "^17.0.0",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^5.5.4",
+    "uglify-js": "^3.19.2"
   }
 }
