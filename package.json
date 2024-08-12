@@ -1,6 +1,6 @@
 {
   "name": "thai-baht-text",
-  "version": "2.0.1-3",
+  "version": "2.0.4",
   "description": "Convert number to Thai Bath as Text",
   "main": "dist/thai-baht-text.min.js",
   "types": "index.d.ts",
@@ -9,6 +9,7 @@
     "test-mocha-watch": "ts-mocha --watch src/*.spec.js",
     "test": "cross-env NODE_ENV=test nyc --all npm run test-mocha",
     "test:watch": "cross-env NODE_ENV=test nyc --all npm run test-mocha-watch",
+    "test:mutation": "npx stryker run",
     "build": "tsc && uglifyjs --mangle webkit,v8 ./dist/thai-baht-text.js -o ./dist/thai-baht-text.min.js"
   },
   "repository": {
@@ -50,6 +51,8 @@
     "eslint-plugin-import": "^2.20.2",
     "mocha": "^10.7.3",
     "nyc": "^17.0.0",
+    "@stryker-mutator/core": "^7.3.0",
+    "@stryker-mutator/mocha-runner": "^7.3.0",
     "ts-mocha": "^10.0.0",
     "typescript": "^5.5.4",
     "uglify-js": "^3.19.2"

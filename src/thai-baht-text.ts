@@ -3,8 +3,7 @@
  * @see {@link https://github.com/antronic/that-baht-text-js|GitHub}
  */
 
-// options
-
+// Constants
 const MAX_POSITION = 6
 const UNIT_POSITION = 0
 const TEN_POSITION = 1
@@ -71,10 +70,6 @@ const getBathText = (position: number, number: string, lengthOfDigits: number) =
 		numberText = 'เอ็ด'
 	}
 
-	if (lengthOfDigits == 2 && isLastPosition(position, lengthOfDigits) && _number == 1) {
-		numberText = 'เอ็ด'
-	}
-
 	if (lengthOfDigits > 1 && isUnitPosition(position) && _number == 1) {
 		numberText = 'เอ็ด'
 	}
@@ -82,7 +77,6 @@ const getBathText = (position: number, number: string, lengthOfDigits: number) =
 	return numberText
 }
 
-// convert function without async
 const convert = (numberInput: number): string => {
 	const numberReverse: string = reverseNumber(numberInput)
 	let textOutput = ''
