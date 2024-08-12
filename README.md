@@ -20,7 +20,7 @@ In the browser, you can simply add `thai-baht-text.min.js` in a script tag witho
 // หนึ่งหมื่นห้าสิบบาทถ้วน
 ```
 
-## Installation | วิธีติดตั้ง
+## ⚒️ Installation | วิธีติดตั้ง
 ```bash
 npm install thai-baht-text --save
 ```
@@ -36,12 +36,16 @@ bower install thai-baht-text --save
 ``` -->
 
 
-## Usage | วิธีการใช้งาน
+## ⚙️ Usage | วิธีการใช้งาน
 
-#### Javascript ES5
+**[Live Demo](#)** (Coming soon)
 
+### Node.js
 ```javascript
-const ThaiBahtText = require('thai-baht-text') // for ES5
+// ----CommonJS----
+const ThaiBahtText = require('thai-baht-text') // for CommonJS
+// ----ES Module----
+import ThaiBahtText from 'thai-baht-text'
 
 let money = 10050
 let moneyText = ThaiBahtText(money)
@@ -54,52 +58,33 @@ money = 12345678988888.50
 console.log(ThaiBahtText(money))
 // OUTPUT: สิบสองล้านล้านสามแสนสี่หมื่นห้าพันหกร้อยเจ็ดสิบแปดล้านเก้าแสนแปดหมื่นแปดพันแปดร้อยแปดสิบแปดบาทห้าสิบสตางค์
 ```
-**More infomation [ES5 Example](/example/example_es5.js)**
-___
+### More infomation
+- **[CommonJS Example](/example/example_es5.js)**
+- **[ES Module Example](/example/example_es6.js)**
+- **[Browser version (UMD)](/example/example_umd)**
 
-#### Javascript ES6
-
-```javascript
-import ThaiBahtText from 'thai-baht-text'
-
-let money = 10050
-const moneyText = ThaiBahtText(money)
-
-console.log(moneyText)
-// OUTPUT: หนึ่งหมื่นห้าสิบบาทถ้วน
-
-money = 12345678988888.50
-
-console.log(ThaiBahtText(money))
-// OUTPUT: สิบสองล้านล้านสามแสนสี่หมื่นห้าพันหกร้อยเจ็ดสิบแปดล้านเก้าแสนแปดหมื่นแปดพันแปดร้อยแปดสิบแปดบาทห้าสิบสตางค์
-```
-
-**More infomation [ES6 Example](/example/example_es6.js)**
-
-
-**More infomation [Browser version (UMD)](/example/example_umd)**
-
-## Development
+## 🧑‍💻 Development
 * `npm run test` to run all tests in this project
 * `npm run test:watch` to run all tests in watch mode. This allows us to develop/refactor code and get fast feedback to ensure we don't break anything.
+* `npm run buid` to compile and minify the project, then output it to the `dist` directory.
 
-## Library & Development Tools
-* [Stryker](https://stryker-mutator.io/)
+<!-- ## Library & Development Tools
+* [Stryker](https://stryker-mutator.io/) -->
+
+## 🗺️ Features plan
+- [ ] Return just only number text without unit
+- [ ] Convert to Thai number
+
 
 ## License
 The Thai-Baht-Text JS is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Ending message
-If you found bugs or some missing point, please send pull request back or open an issue.
+## ✉️ Dear you,
+If you find any bugs or have a feature request, please open a pull request or create an issue.
 
-Thank you so much 😃
-<br /><br />
 
-Regards,
-
-Jirachai Chansivanon
-___
 <br /><br /><br />
+___
 แปลง เลข เป็น บาทไทย,
 
 thai baht text javascript,
