@@ -11,3 +11,6 @@ yarn.lock
 package-lock.json
 
 old
+# Stryker
+.stryker-tmp
+reports
