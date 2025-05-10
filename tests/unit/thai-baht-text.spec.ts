@@ -90,4 +90,8 @@ describe('Thai Baht Text', () => {
 		expect(ThaiBahtText(567.01)).to.equal('ห้าร้อยหกสิบเจ็ดบาทหนึ่งสตางค์')
 		expect(ThaiBahtText(123456789.999)).to.equal('หนึ่งร้อยยี่สิบสามล้านสี่แสนห้าหมื่นหกพันเจ็ดร้อยแปดสิบเก้าบาทเก้าสิบเก้าสตางค์')
 	})
+	
+	it('should handle this', () => {
+		expect(ThaiBahtText(Number.MAX_VALUE)).to.not.equal('หนึ่งบาทเจ็ดสิบเก้าสตางค์')
+	})
 })
