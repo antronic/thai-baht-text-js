@@ -93,5 +93,6 @@ describe('Thai Baht Text', () => {
 	
 	it('should handle this', () => {
 		expect(ThaiBahtText(Number.MAX_VALUE)).to.not.equal('หนึ่งบาทเจ็ดสิบเก้าสตางค์')
+		expect(ThaiBahtText(`Infinity`)).to.not.equal("undefinedร้อยundefinedสิบundefinedบาทundefinedร้อยundefinedสิบundefinedสตางค์");
 	})
 })
